@@ -1,0 +1,32 @@
+body {
+	padding-top: 5rem;
+	font-size: xxx-large;
+}
+
+.starter-template {
+	padding: 3rem 1.5rem;
+	text-align: center;
+}
+
+input {
+	font-size: xxx-large;
+	padding: 5px;
+	margin: 5px;
+	border: inset;
+}
+
+fieldset {
+	border: none;	
+}
+
+h1 {
+	color: #ff00ff;
+}
+
+h2 {
+	color: #ffff00;
+}
+
+ul, ol {
+	display: inline-block;
+}

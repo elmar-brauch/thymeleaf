@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{common_head :: head}"> />
+
+<body>
+	<main role="main" class="container">
+		<div class="starter-template">
+			<h1 th:text="#{title.item-create}" />
+			<form th:action="@{/item}" method="post">
+			    <fieldset>
+			        <div class="form-group">
+			            <input type="text" name="itemname" id="itemname" class="form-control input-lg"
+			                   placeholder="Lego Roboter" required autofocus/>
+			        </div>
+			        <div class="form-group">
+			            <input type="text" name="itemid" id="itemid" class="form-control input-lg"
+			                   placeholder="123" required/>
+			        </div>
+			
+			        <div class="row">
+			            <div class="col-xs-6 col-sm-6 col-md-6">
+			                <input type="submit" class="btn btn-lg btn-primary btn-block" th:value="#{button.create-item}" />
+			            </div>
+			            <div class="col-xs-6 col-sm-6 col-md-6">
+			            </div>
+			        </div>
+			    </fieldset>
+			</form>
+			<h2><a th:href="@{/}" th:text="#{link.show-items}"/></h2>
+		</div>
+	</main>
+	<script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+</body>
+</html>
