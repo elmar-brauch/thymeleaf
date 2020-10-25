@@ -1,4 +1,4 @@
-# Spring RestController demo project
+# Thymeleaf & Spring MVC demo project
 
 ## How to get it running
 * Clone this GIT project
