@@ -9,20 +9,16 @@
 			<form th:action="@{/item}" method="post">
 			    <fieldset>
 			        <div class="form-group">
-			            <input type="text" name="itemname" id="itemname" class="form-control input-lg"
+			            <input type="text" name="itemname"
 			                   placeholder="Lego Roboter" required autofocus/>
 			        </div>
 			        <div class="form-group">
-			            <input type="text" name="itemid" id="itemid" class="form-control input-lg"
+			            <input type="text" name="itemid"
 			                   placeholder="123" required/>
 			        </div>
 			
 			        <div class="row">
-			            <div class="col-xs-6 col-sm-6 col-md-6">
-			                <input type="submit" class="btn btn-lg btn-primary btn-block" th:value="#{button.create-item}" />
-			            </div>
-			            <div class="col-xs-6 col-sm-6 col-md-6">
-			            </div>
+			            <input type="submit" th:value="#{button.create-item}" />
 			        </div>
 			    </fieldset>
 			</form>
