@@ -9,8 +9,8 @@
 			<ol th:unless="${#lists.isEmpty(items)}">
 				<li th:each="item : ${items}" th:text="${item.name}"></li>
 				<script th:inline="javascript">
-        			var last = [[(${items[0].name})]];
-        			popup([[(#{msg.popup})]], last);
+        			var last = [[${items[0].name}]];
+        			popup([[#{msg.popup}]], last);
     			</script>
 			</ol>
 			<h2><a th:href="@{/item-create}" th:text="#{link.create-item}" /></h2>	
