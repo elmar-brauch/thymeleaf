@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
  * This Controller is just a demo for a Controller without Session handling.
  * To show the difference to a Controller with Session handling.
  */
-//@Controller
+@Controller
 public class ItemNoSessionController {
 	
 	private static final String MODEL_KEY_ITEMS = "items";

@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller
+//@Controller
 public class ItemController {
 	
 	private static final String MODEL_KEY_ITEMS = "items";
 	private static final String VIEW_NAME_LIST = "item-list";
 	private static final String VIEW_NAME_CREATE = "item-create";
 	
-	@Autowired private HttpSession session;
+	// TODO Get Session Bean
 	
 	@GetMapping(path = {"/", "/item"})
 	public ModelAndView showItems(ModelAndView mav) {
@@ -43,20 +43,17 @@ public class ItemController {
 	}
 
 	private List readItemsFromSession() {
-		if (session.getAttribute(MODEL_KEY_ITEMS) instanceof List items)
-			return items;
+		// TODO Read items from session
 		return List.of();
 	}
 	
 	private void createItemInSession(String name, String id) {
 		var items = new ArrayList<Item>();
-		var obj = session.getAttribute(MODEL_KEY_ITEMS);
-		if (obj instanceof ArrayList) 
-			items = (ArrayList<Item>) obj;
+		// TODO Get items from session
 		var item = new Item();
 		item.setId(id);
 		item.setName(name);
 		items.add(item);
-		session.setAttribute(MODEL_KEY_ITEMS, items);
+		// TODO Store updated items in session
 	}
 }
