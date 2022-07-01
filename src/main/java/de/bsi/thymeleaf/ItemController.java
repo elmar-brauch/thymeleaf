@@ -20,6 +20,8 @@ public class ItemController {
 	private static final String VIEW_NAME_LIST = "item-list";
 	private static final String VIEW_NAME_CREATE = "item-create";
 	
+	@Autowired private HttpSession session;
+	
 	@GetMapping(path = {"/", "/item"})
 	public ModelAndView showItems(ModelAndView mav) {
 		mav.setViewName(VIEW_NAME_LIST);
@@ -40,8 +42,6 @@ public class ItemController {
 		return VIEW_NAME_LIST;
 	}
 
-	@Autowired private HttpSession session;
-	
 	private List readItemsFromSession() {
 		if (session.getAttribute(MODEL_KEY_ITEMS) instanceof List items)
 			return items;
