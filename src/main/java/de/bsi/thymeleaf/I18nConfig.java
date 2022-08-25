@@ -14,14 +14,14 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 public class I18nConfig implements WebMvcConfigurer {
 	
 	@Bean
-	public LocaleResolver localeResolver() {
+	LocaleResolver localeResolver() {
 		var resolver = new SessionLocaleResolver();
 		resolver.setDefaultLocale(Locale.GERMAN);
 		return resolver;
 	}
 	
     @Bean
-    public LocaleChangeInterceptor localeChangeInterceptor() {
+    LocaleChangeInterceptor localeChangeInterceptor() {
         var lci = new LocaleChangeInterceptor();
         lci.setParamName("lang");
         return lci;
