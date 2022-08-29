@@ -8,9 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -53,9 +51,7 @@ public class ItemController {
 		var obj = session.getAttribute(MODEL_KEY_ITEMS);
 		if (obj instanceof ArrayList) 
 			items = (ArrayList<Item>) obj;
-		var item = new Item();
-		item.setId(id);
-		item.setName(name);
+		var item = new Item(id, name);
 		items.add(item);
 		session.setAttribute(MODEL_KEY_ITEMS, items);
 	}
