@@ -3,7 +3,7 @@ package de.bsi.thymeleaf;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,12 +47,11 @@ public class ItemController {
 	}
 	
 	private void createItemInSession(String name, String id) {
-		var items = new ArrayList<Item>();
-		var obj = session.getAttribute(MODEL_KEY_ITEMS);
-		if (obj instanceof ArrayList) 
-			items = (ArrayList<Item>) obj;
-		var item = new Item(id, name);
-		items.add(item);
-		session.setAttribute(MODEL_KEY_ITEMS, items);
+	    var sessionItems = (List<Item>) session.getAttribute(MODEL_KEY_ITEMS);
+	    if (sessionItems == null) {
+	        sessionItems = new ArrayList<>();
+	        session.setAttribute(MODEL_KEY_ITEMS, sessionItems);
+	    }
+	    sessionItems.add(new Item(id, name));
 	}
 }
