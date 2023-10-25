@@ -1,4 +1,4 @@
-FROM openjdk:17-slim
+FROM openjdk:21-slim
 ADD ./target/thymeleaf-*.jar /app.jar
 
 EXPOSE 8080
