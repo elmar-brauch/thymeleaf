@@ -23,7 +23,7 @@ public class ThreadConfig {
     @Profile("virtual")
     TomcatProtocolHandlerCustomizer<ProtocolHandler> protocolHandlerVirtualThreadExecutorCustomizer() {
         return protocolHandler -> protocolHandler.setExecutor(
-                Executors.newVirtualThreadPerTaskExecutor());
+        		Executors.newVirtualThreadPerTaskExecutor());
     }
 
 }

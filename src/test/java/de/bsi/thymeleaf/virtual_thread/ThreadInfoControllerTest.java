@@ -17,15 +17,15 @@ class ThreadInfoControllerTest {
 
     @Test
     void loadTestWithVirtualThreads() throws Exception {
-        try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
-            var before = System.currentTimeMillis();
+    	var before = System.currentTimeMillis();
+    	try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
             IntStream.range(0, REQUESTS).forEach(i -> executor.submit(() -> {
                 var resp = client.getForObject("http://localhost:8080/thread", ThreadInfo.class);
                 System.out.println("Completed: " + resp.toString());
             }));
-            System.out.println("All requests send away after ms: "
-                    + (System.currentTimeMillis() - before));
         }
+        System.out.println("All requests send away after ms: "
+                + (System.currentTimeMillis() - before));
     }
 
 }
