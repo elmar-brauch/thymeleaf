@@ -4,14 +4,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.5</version>
+		<version>3.2.0</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>de.bsi</groupId>
 	<artifactId>thymeleaf</artifactId>
-	<version>0.4</version>
+	<version>0.5</version>
 	<name>thymeleaf</name>
-	<description>Demo for using Thymeleaf and Spring Session</description>
+	<description>Demo for using Thymeleaf, Spring Session and virtual threads</description>
 
 	<properties>
 		<java.version>21</java.version>
