@@ -16,7 +16,8 @@ import java.util.logging.Logger;
 @Validated
 public class CustomerController {
 
-    public record Customer(String customerNumber) {}
+    public record Customer(String customerNumber) {
+    }
 
     private final Logger log = Logger.getLogger(CustomerController.class.getName());
     private final CustomerService customerService;
@@ -34,7 +35,7 @@ public class CustomerController {
     @GetMapping(path = "/customer/email", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Customer> getCustomerNumberByEmail(
             @Email @RequestParam("email") String email) {
-        log.finest("Incoming request GET /customer?email=%s".formatted(email));
+        log.finest("Incoming request GET /customer/email?email=%s".formatted(email));
         var optionalCustomerNumber = customerService.getCustomerNumberByEmail(email);
         if (optionalCustomerNumber.isPresent())
             return ResponseEntity.ok(new Customer(optionalCustomerNumber.get()));
@@ -45,7 +46,6 @@ public class CustomerController {
 
     /**
      * Find customer number by first name and last name.
-     *
      * @param firstName first name of the customer.
      * @param lastName last name of the customer.
      * @return Returns customer number wrapped in Customer record.
@@ -54,7 +54,7 @@ public class CustomerController {
     public ResponseEntity<Customer> getCustomerNumberByFirstNameAndLastName(
             @Valid @Pattern(regexp = REGEX_GERMAN_WORD) @RequestParam("firstName") String firstName,
             @Valid @Pattern(regexp = REGEX_GERMAN_WORD) @RequestParam("lastName") String lastName) {
-        log.finest("Incoming request GET /customer?firstName=%s&lastName=%s".formatted(firstName, lastName));
+        log.finest("Incoming request GET /customer/name?firstName=%s&lastName=%s".formatted(firstName, lastName));
         var optionalCustomerNumber = customerService.getCustomerNumberByFirstNameAndLastName(firstName, lastName);
         if (optionalCustomerNumber.isPresent())
             return ResponseEntity.ok(new Customer(optionalCustomerNumber.get()));
